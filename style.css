@@ -58,7 +58,8 @@ html, body {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Bangers', cursive;
+		font-family: 'Oswald', sans-serif;
+    /* font-family: 'Bangers', cursive; */
     letter-spacing: 1px;
     margin-bottom: 15px;
 }
@@ -87,7 +88,7 @@ header {
 }
 
 footer {
-	position: absolute;
+	position: fixed;
   bottom: 0;
 	width: 100%;
 	padding-top: 10px;
@@ -96,6 +97,10 @@ footer {
 	3px 0 3px 0 rgba(0,0,0,0.19),
 	0 3px 3px 0 rgba(0,0,0,0.23);
 	background-color: #fff;
+}
+
+strong {
+	font-weight: bold;
 }
 
 .logo-bar {
@@ -170,7 +175,7 @@ footer {
 .hero-box {
   height: 45%;
   width: 50%;
-  background-color:rgba(256, 256, 256, 0.25);
+  background-color:rgba(256, 256, 256, 0.40);
   /* border: 1px solid red; */
 	padding: 20px;
 	margin: 0 60px 200px 0;
@@ -182,13 +187,69 @@ footer {
 .hero-box h2 {
   font-size: 40px;
   text-align:center;
-  margin: 12px auto;
+  margin: 10px 0 25px;
 }
 
 .hero-box p {
 	font-size: 18px;
 	line-height: 1.25;
 	font-weight: bold;
+}
+
+.middle-content {
+	background-image: url("img/section-wallpaper.jpg");
+	height: 600px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.three-column-block {
+	padding: 10px;
+	width: 32%;
+	/* box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.35),
+  3px 0 3px 0 rgba(0,0,0,0.19),
+  0 3px 3px 0 rgba(0,0,0,0.23); */
+}
+
+.middle-content .contact-block {
+	box-shadow: none;
+}
+
+.middle-content .contact-block h2 {
+	font-size: 34px;
+}
+
+.middle-content .contact-block p {
+	font-size: 24px;
+	line-height: 1.25;
+}
+
+.middle-content .dive-services h2 {
+	text-align: center;
+	font-size: 28px;
+}
+
+.middle-content .dive-services p {
+	padding: 10px;
+	font-size: 20px;
+	line-height: 1.25;
+}
+.middle-content .dive-services img {
+	width: 100%;
+}
+
+.middle-content .marine-services h2 {
+	text-align: center;
+	font-size: 28px;
+}
+
+.middle-content .marine-services p {
+	padding: 10px;
+	font-size: 20px;
+	line-height: 1.25;
+}
+.middle-content .marine-services img {
+	width: 100%;
 }
 
 /*  */
