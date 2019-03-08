@@ -79,6 +79,12 @@ h1, h2, h3, h4, h5 {
 	background-color: #f6f6f6;
 }
 
+@media(max-width: 1024px) {
+	.container-body {
+		width: 720px;
+	}
+}
+
 header {
   padding-top: 10px;
   box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.19),
@@ -88,15 +94,16 @@ header {
 }
 
 footer {
-	position: fixed;
-  bottom: 0;
+	/* position: fixed; */
+  /* bottom: 0; */
 	width: 100%;
-	padding-top: 10px;
+	padding: 20px;
 	margin-top: 4px;
 	box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.40),
 	3px 0 3px 0 rgba(0,0,0,0.19),
 	0 3px 3px 0 rgba(0,0,0,0.23);
 	background-color: #fff;
+	text-align: center;
 }
 
 strong {
@@ -131,6 +138,9 @@ strong {
 
 }
 
+.display-block {
+	display: block;
+}
 .link5 {
   border-right: 1px solid #ccc;
 }
@@ -172,22 +182,55 @@ strong {
   align-items: flex-end;
 }
 
+@media(max-width: 1024px) {
+	.hero{
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.03); }
+
+.float-up {
+  /* margin:20px;
+  padding: 3px;
+  outline:2px solid #DDD;
+  border:#a1a1a1;
+  float:left; */
+	-webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+}
+
+.float-up:hover {
+	cursor:pointer;
+  margin-bottom: 28px;
+}
+
 .hero-box {
   height: 45%;
   width: 50%;
   background-color:rgba(256, 256, 256, 0.40);
   /* border: 1px solid red; */
-	padding: 20px;
-	margin: 0 60px 200px 0;
+	padding: 20px 20px 30px 20px;
+	margin: 0 20px 20px 0;
 	box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.35),
   3px 0 3px 0 rgba(0,0,0,0.19),
   0 3px 3px 0 rgba(0,0,0,0.23);
 }
 
+@media(max-width: 1024px) {
+	.hero-box{
+		width: 80%;
+		margin: 0;
+	}
+}
+
 .hero-box h2 {
   font-size: 40px;
   text-align:center;
-  margin: 10px 0 25px;
+  margin: 10px 0 20px;
 }
 
 .hero-box p {
@@ -196,11 +239,34 @@ strong {
 	font-weight: bold;
 }
 
-.middle-content {
-	background-image: url("img/section-wallpaper.jpg");
-	height: 600px;
+.dive-marine-wrapper {
 	display: flex;
+	width: 66%;
+}
+
+@media(max-width: 1024px) {
+	.dive-marine-wrapper{
+		width: 100%;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+}
+
+.middle-content {
+	/* background-image: url("img/section-wallpaper.jpg"); */
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
+	padding-bottom: 10px;
+
+}
+
+@media(max-width: 1024px) {
+	.middle-content{
+		flex-direction: column;
+		padding: 0;
+	}
 }
 
 .three-column-block {
@@ -211,17 +277,114 @@ strong {
   0 3px 3px 0 rgba(0,0,0,0.23); */
 }
 
+/* @media(max-width: 1024px) {
+	.three-column-block{
+		width: 50%;
+		margin: 0;
+	}
+} */
+
+.half-block {
+	padding: 10px;
+	width: 49%;
+	/* box-shadow: -3px -3px 3px 0 rgba(0,0,0,0.35),
+  3px 0 3px 0 rgba(0,0,0,0.19),
+  0 3px 3px 0 rgba(0,0,0,0.23); */
+}
+
+@media(max-width: 1024px) {
+	.half-block{
+		padding: 0;
+	}
+}
+
 .middle-content .contact-block {
+	background-color: #008fb3;
 	box-shadow: none;
 }
 
+@media(max-width: 1024px) {
+	.middle-content .contact-block{
+		width: 100%;
+		display: none;
+	}
+}
+
 .middle-content .contact-block h2 {
-	font-size: 34px;
+	font-size: 40px;
+	color: white;
+	margin-bottom: 40px;
+	padding: 10px;
+}
+
+@media(max-width: 1024px) {
+	.middle-content .contact-block h2 {
+		font-size: 36px;
+	}
 }
 
 .middle-content .contact-block p {
 	font-size: 24px;
 	line-height: 1.25;
+	color: white;
+	padding: 10px;
+}
+
+@media(max-width: 1024px) {
+	.middle-content .contact-block p {
+		font-size: 18px;
+	}
+}
+
+.middle-content .mobile-contact {
+	display: none;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+@media(max-width: 1024px) {
+	.middle-content .mobile-contact {
+		display: block;
+	}
+}
+
+.middle-content .mobile-contact h2 {
+	font-size: 22px;
+	margin-bottom: 0;
+}
+
+.middle-content .mobile-contact p {
+	font-size: 17px;
+
+}
+
+.line-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.btn {
+	padding: 10px 20px;
+	background-color: #008fb3;
+	color: white;
+	font-size: 14px;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+
+.btn:hover {
+	background-color: #005e75;
+
+}
+
+.link-style {
+	text-align: center;
+	display: inline-block;
+	padding: 10px;
+	font-size: 22px;
+	text-decoration: underline;
+	color: blue;
+
 }
 
 .middle-content .dive-services h2 {
