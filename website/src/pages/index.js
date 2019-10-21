@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 //Material UI imports
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,13 +7,14 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 import Layout from "../components/layout"
-import Image from "../components/image"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing(2, 0)
+    padding: theme.spacing(2, 0),
+    backgroundColor: 'white'
   },
   paper: {
     padding: theme.spacing(2),
@@ -22,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  console.log(data)
   const classes = useStyles();
 
   return (
@@ -31,7 +33,9 @@ const IndexPage = () => {
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Paper className={classes.paper}>xs=12</Paper>
+            {/* <Paper className={classes.paper}> */}
+            <Img fluid={data.jumbotron.childImageSharp.fluid} alt="" />
+            {/* </Paper> */}
           </Grid>
           <Grid item xs={6}>
             <Paper className={classes.paper}>xs=6</Paper>
@@ -58,4 +62,21 @@ const IndexPage = () => {
   )
 }
 
+export const query = graphql`
+query HomePageQuery {
+  site {
+    siteMetadata {
+      title
+    }
+  },
+  jumbotron:  file(relativePath: { eq: "seaLevelHeader.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+  
 export default IndexPage
