@@ -7,6 +7,9 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -23,8 +26,26 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ButtonAppBar( {siteTitle}) {
-  const classes = useStyles();
+  const data = useStaticQuery(graphql`
+    query AppBarQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      },
+      icon: file(relativePath: { eq: "sealevel-icon.png" }) {
+          childImageSharp {
+            fluid(quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `
+  )
 
+  const classes = useStyles();
+  console.log(data.icon.childImageSharp.fluid)
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar} >
@@ -32,6 +53,7 @@ export default function ButtonAppBar( {siteTitle}) {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
+          <img src={data.icon.childImageSharp.fluid} alt="" />
           <Typography variant="h6" className={classes.title}>
             {siteTitle}
           </Typography>
